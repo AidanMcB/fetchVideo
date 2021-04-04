@@ -3,7 +3,7 @@ let postBtn = document.querySelector('.post-button');
 
 getBtn.addEventListener('click', () => {
     console.log("GET")
-    fetch('http://localhost:3001/api')
+    fetch('http://localhost:9000/testAPI')
     .then(res => res.json())
     .then(data => console.log(data))
 })
