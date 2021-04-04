@@ -1,0 +1,29 @@
+{
+  "flowers": [
+    {
+      "id": "1",
+      "name": "Petunia",
+      "color": "Purple",
+      "type": "Annual",
+      "sun": "Full Sun",
+      "imgUrl": "../assets/purple-petunias.jpeg"
+    },
+    {
+      "id": "2",
+      "name": "Geranium",
+      "color": "Pink",
+      "type": "Annual",
+      "sun": "Full Sun",
+      "imgUrl": "../assets/pink-geranium.jpeg"
+    },
+    {
+      "id": "3",
+      "name": "New Guinea Impatients",
+      "color": "Red-orange",
+      "type": "Annual",
+      "sun": "Part Shade",
+      "imgUrl": "../assets/orange-red-new-guinea-impatients"
+    }
+
+  ]
+}
