@@ -1,0 +1,27 @@
+.flowers-grid {
+    margin: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
+    width: 900px;
+}
+.flower-card {
+    text-align: center;
+    outline: 1px solid black;
+    background-color:aquamarine;
+}
+.flower-name {
+    font-size: 24px;
+    background-color: #89F2FF;
+    margin-bottom: 10px;
+    border-bottom: .5px solid black;
+}
+img {
+    border-radius: 100px;
+    border: 1px solid gray;
+    height: 180px;
+    width: 180px;
+}
+p {
+    margin: 0;
+}

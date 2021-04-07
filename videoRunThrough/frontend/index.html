@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="fetch.js" async></script>
+gs    <link href="styles.css" rel="stylesheet">
     <title>Using The Fetch API</title>
 </head>
 <body>
@@ -15,16 +16,21 @@
         <span>Add Flowers</span>
         <label>Name:</label>
         <input class="name-input">
-        <label>Color:</label>
-        <input class="color-input">
-        <label>Type:</label>
-        <input class="type-input">
         <label>Sun:</label>
         <input class="sun-input">
         <label>Image URL:</label>
         <input class="img-input">
         <button class="add-flower-btn" type="submit">Add Flower</button>
     </form>
+
+    <div class="flowers-grid">
+        <div class="flower-card">
+            <p class="flower-name">Marigold</p>
+            <img src="../assets/marigold.jpeg" > 
+            <p>Full Sun</p>
+            <button class="del-btn">X</button>
+        </div>
+    </div>
     
     
 </body>
