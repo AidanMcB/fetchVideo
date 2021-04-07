@@ -1,6 +1,6 @@
 {
   "flowers": [
-    {
+      {
         "id" : "1",
         "name" : "Petunia",
         "imgUrl" : "../assets/purple-petunias.jpeg",
