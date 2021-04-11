@@ -57,7 +57,7 @@ const displayFlower = (flower) => {
             })
             .then(res => res.json())
             .then(data => console.log(data))
-            flowerCard.remove()
+        flowerCard.remove()
     })
 }
 
