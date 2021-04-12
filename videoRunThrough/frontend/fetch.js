@@ -11,11 +11,11 @@ const getFlowers = () => {
         })
     })
 }
-
 getFlowers();
 
 // DELETE
-const deleteFlower = (flower) => {
+
+const deleteFlower = (flower, flowerCard) => {
     fetch(`http://localhost:3000/flowers/${flower.id}`, {
     method: 'DELETE',
     headers: {
@@ -27,13 +27,48 @@ const deleteFlower = (flower) => {
     flowerCard.remove()
 }
 
+// PATCH
+
+const editFlower = (flower, oldSunExposure) => {
+    fetch(`http://localhost:3000/flowers/${flower.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ sunExposure: 'Shady' }),
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(newData => {
+        oldSunExposure.innerText = newData.sunExposure;
+    })  
+}
+
+// PUT
+
+const putFlower = (flower, name) => {
+    fetch(`http://localhost:3000/flowers/${flower.id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            name: 'Lilly',
+            imgUrl: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.brecks.com%2Fproduct%2FEyeliner-Lily&psig=AOvVaw3F_xk2xnXaXZrugUr2ctJa&ust=1618271674833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiKw_Sx9-8CFQAAAAAdAAAAABAE',
+        }),
+        headers: { 
+            'Content-Type' : 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then( newFlower => {
+        name.innerText = newFlower.name
+    })
+}
+
 const displayFlower = (flower) => {
     let flowerCard = document.createElement('div')
     flowerCard.className = 'flower-card'
 
-    let title = document.createElement('p')
-    title.className = 'flower-name'
-    title.innerText = flower.name
+    let name = document.createElement('p')
+    name.className = 'flower-name'
+    name.innerText = flower.name
 
     let deleteBtn = document.createElement('button')
     deleteBtn.className = 'del-btn'
@@ -41,24 +76,22 @@ const displayFlower = (flower) => {
 
     let img = document.createElement('img')
     img.src = flower.imgUrl
+
+    // Put
+    img.addEventListener('click', () => putFlower(flower, name))
     
     let sunExposure = document.createElement('p')
+    sunExposure.className = 'sun-exposure'
     sunExposure.innerText = flower.sunExposure 
-
-    flowerCard.append(title, img, sunExposure, deleteBtn)
+    
+    //Edit
+    sunExposure.addEventListener('click', () => editFlower(flower, sunExposure) )
+    
+    flowerCard.append(name, img, sunExposure, deleteBtn)
     flowersGrid.append(flowerCard)
 
-    deleteBtn.addEventListener('click', () => {
-        fetch(`http://localhost:3000/flowers/${flower.id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type' : 'application/json'
-            }
-            })
-            .then(res => res.json())
-            .then(data => console.log(data))
-        flowerCard.remove()
-    })
+    //Delete
+    deleteBtn.addEventListener('click', () => deleteFlower(flower, flowerCard))
 }
 
 // POST
@@ -84,4 +117,4 @@ const addFlower = (event) => {
 
 addFlowerForm.addEventListener('submit', (event) => addFlower(event))
 
-// PATCH
+
