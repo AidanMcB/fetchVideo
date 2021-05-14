@@ -1,0 +1,22 @@
+{
+  "flowers": [
+    {
+      "id": "1",
+      "name": "Petunia",
+      "imgUrl": "../api/assets/purple-petunias.jpeg",
+      "sunExposure": "Shady"
+    },
+    {
+      "id": "2",
+      "name": "Geranium",
+      "imgUrl": "../api/assets/pink-geranium.jpeg",
+      "sunExposure": "Shady"
+    },
+    {
+      "id": "3",
+      "name": "New Guinea Impatients",
+      "imgUrl": "../api/assets/orange-red-new-guinea-impatients.jpeg",
+      "sunExposure": "Shady"
+    }
+  ]
+}
