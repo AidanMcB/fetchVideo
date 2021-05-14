@@ -31,6 +31,8 @@ const displayFlower = (flower) => {
     sunExposure.className = 'sun-exposure';
     sunExposure.innerText = flower.sunExposure;
 
+    sunExposure.addEventListener('click', () => editFlower(flower))
+
     deleteBtn.addEventListener('click', () => deleteFlower(flower))
 
     flowerCard.append(name, img, sunExposure, deleteBtn);
@@ -56,6 +58,38 @@ let flowerForm = document.querySelector('.add-flower-form');
 
 const addFlower = (event) => {
     event.preventDefault();
-    
+
+    let newFlower = {
+        name: event.target[0].value,
+        sunExposure: event.target[1].value,
+        imgUrl: event.target[2].value,
+    }
+
+    fetch('http://localhost:3000/flowers', {
+        method: 'POST',
+        body: JSON.stringify(newFlower),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then( data => console.log(data))
 
 }
+
+flowerForm.addEventListener('submit', (e) => addFlower(e));
+
+// PATCH 
+
+const editFlower = (flower) => {
+    fetch(`http://localhost:3000/flowers/${flower.id}`,{
+        method: 'PATCH',
+        body: JSON.stringify({ sunExposure: 'Shady'}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+}
+
